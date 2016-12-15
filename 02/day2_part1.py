@@ -1,19 +1,102 @@
-contents = open("triangle.txt").read()
-lines = contents.strip().split("\n")
-count = 0
-col_list = []
+input1 = "RLRDDRLLDLRLUDDULLDRUUULDDLRLUDDDLDRRDUDDDLLURDDDLDDDRDURUDRDRRULUUDUDDRRRLRRRRRLRULRLLRULDRUUDRLRRURDDRLRULDLDULLLRULURRUULLRLLDDDDLLDURRUDLDLURDRDRDLUUUDDRDUUDDULLUURRDRLDDULURRRUDLLULULDLLURURUDRRRRUDRLRDLRRLDDRDDLULDLLLURURDUDRRRRUULURLRDULDRLUDRRUDDUULDURUDLDDURRRDLULLUUDRLLDUUDLDRUDDRLLLLLLDUDUDDLRDLRRDRUDDRRRLLRRDLLRLDDURUURRRDDLDUULLDLDLRURDLLLDDRUUDRUDDDDULRLLDUULRUULLLULURRRLLULDLDUDLDLURUDUDULLDLLUUDRRDRLUURURURURDLURUUDLDRLUDDUUDULDULULLLDLDDULLULLDULRRDRULLURRRULLDDDULULURLRDURLLURUDDULLRUDLRURURRDRDUULDRUUDURDURDDLRDUUULDUUDRDURURDRRRURLLDDLLLURURULULUDLRDLDRDRURLRLULRDLU"
+input2 = "UDLDURRULDRDDLDUULUDLDUULUURDDRUDRURRRUDRURLLDDRURLDLRDUUURDLLULURDDUDDDRRRURLLDLDLULRDULRLULDLUUDLLRLDLRUUULDDUURDLDDRRDLURLDUDDRURDRRURDURRRLUULURDDLRDLDRRRLDUDRLRLLRLDDUULDURUUULLLRRRRRRRDRRRDRLUULDLDDLULDRDUDLLUDRRUDRUUDULRLUURDDDDRRUUDLURULLLURDULUURDRDDURULRUDRRDLRDUUUUUDDDRDRDDRUDRDDDRLRUUDRDRDDDLUDRDRLDRDDRULURDRLDRUDUDRUULRLLUDRDRLLLLDUDRRLLURDLLLDRRUDDUDRLRLDUDRLURRUUULURDDRUURRLDRLRRRUUDLULDDDRDLDUUURLLUULDDRRUDLDDRUDUDUURURDDRDULLLLLULRRRDLRRRDDDLURDDDDLUULLLRDDURRRRLURRLDDLRUULULRDRDDDDLDUUUUUUDRRULUUUDD"
+input3 = "UURDRRUDLURRDDDLUDLRDURUDURDLLLLRDLRLRDDRDRDUUULRDLLDLULULRDUDDRRUUDURULDLUDLRDRUDLDDULLLDDRDLLDULLLURLLRDDLDRDULRRDDULRDURLLRUDRLRRLUDURLDRDLDLRLLLURLRRURDLDURDLUDULRDULLLDRDDRDLDRDULUULURDRRRLDRRUULULLDDRRLDLRUURLRUURLURRLLULUUULRLLDDUDDLRLDUURURUDLRDLURRLLURUDLDLLUDDUULUUUDDDURDLRRDDDLDRUDRLRURUUDULDDLUUDDULLDDRRDDRRRUDUDUDLDLURLDRDLLLLDURDURLRLLLUUDLRRRRUDUDDLDLRUURRLRRLUURRLUDUDRRRRRRRLDUDDRUDDLUDLRDDDRLDUULDRDRRDLDRURDLDRULRLRLUDRDLRRUURUUUUDLDUUULLLRRRRRDLRRURDDLLLLUULDLLRULLUDLLDLLUDLRLRRLRURDDRRL"
+input4 = "URDRDLLRDDDLLLDDLURLRURUURRRLUURURDURRLLUDURRLRLDLUURDLULRRDRUDDLULDLDRLDLRLRRLLLDDDUDDDLRURURRLLDRRRURUDLRDDLLDULDDLDRLUUUDRRRULDUULRDDDLRRLLURDDURLULRDUDURRLLDLLRLDUDDRRDDLRLLLDUDRLUURRLLDULRLDLUUUUUDULUDLULUDDUURRURLDLDRRLDLRRUDUDRRDLDUDDLULLDLLRDRURDRDRRLDDDDRDDRLLDDDLLUDRURLURDRRRRRUDDDUDUDDRDUUDRRUDUDRLULDDURULUURUUUURDRULRLRULLDDRRRUULRRRRURUDLDLRDLLDRLURLRUULLURDUDULRRURLRLLRRLLLURULRRRLDDUULLUUULRRDRULUUUUDRDRRDLRURLRLLRLRRRDRDRLDLUURUURULLDLULRRLRRDRULRRLLLDDURULLDLDLDLUUURDLDLUUDULRLLUDDRRDLLDLDLDURLUURRDDRRURDRLUDRLUUUDLDULDLUDRLDUDDLLRUDULLLLLDRRLLUULLUUURRDDUURDLLRDDLRLLU"
+input5 = "LDUDRRDLUUDDRLLUUULURLDUDLUDLRLDRURLULRLLDDLRRUUUDDDDRDULDDUUDLRUULDRULLRDRUDDURLDUUURRUDUDRDRDURRDLURRRDRLDLRRRLLLRLURUURRDLLRDLDDLLRDUDDRDUULRULRRURLUDDUDDDUULLUURDULDULLLLRUUUDDRRRLDDDLDLRRDRDRDLUULRLULDRULDLRDRRUDULUDLLUDUULRDLRRUUDDLLDUDDRULURRLULDLDRRULDDRUUDDLURDLRDRLULRRLURRULDUURDLUDLLDRLDULLULDLLRDRDLLLUDLRULLRLDRDDDLDDDLRULDLULLRUUURRLLDUURRLRLDUUULDUURDURRULULRUUURULLLRULLURDDLDRLLRDULLUDLDRRRLLLLDUULRRLDURDURDULULDUURLDUDRLRURRDLUUULURRUDRUUUDRUR"
 
-for l in lines:
-    col_list.append(l.split())
+"""
+input1 = "DLURRULLDDRRLLRRU"
+input2 = "RRDDD"
+input3 = "LURDL"
+input4 = "UUUUD"
+"""
+def getposition(start,direction):
+    position = start
+    if position in {'1','2','3'} and direction == 'U':
+        pass
+    elif position in {'7','8','9'} and direction == 'D':
+        pass
+    elif position in {'1','4','7'} and direction == 'L':
+        pass
+    elif position in {'3','6','9'} and direction == 'R':
+        pass
+    elif position == 1 and direction == 'R':
+        position = 2
+    elif position == 1 and direction == 'D':
+        position = 4
+    elif position == 2 and direction == 'R':
+        position = 3
+    elif position == 2 and direction == 'L':
+        position = 1
+    elif position == 2 and direction == 'D':
+        position = 5
+    elif position == 3 and direction == 'L':
+        position = 2
+    elif position == 3 and direction == 'D':
+        position = 6
+    elif position == 4 and direction == 'U':
+        position = 1
+    elif position == 4 and direction == 'R':
+        position = 5
+    elif position == 4 and direction == 'D':
+        position = 7
+    elif position == 5 and direction == 'U':
+        position = 2
+    elif position == 5 and direction == 'L':
+        position = 4
+    elif position == 5 and direction == 'R':
+        position = 6
+    elif position == 5 and direction == 'D':
+        position = 8
+    elif position == 6 and direction == 'D':
+        position = 9
+    elif position == 6 and direction == 'U':
+        position = 3
+    elif position == 6 and direction == 'L':
+        position = 5
+    elif position == 7 and direction == 'U':
+        position = 4
+    elif position == 7 and direction == 'R':
+        position = 8
+    elif position == 8 and direction == 'U':
+        position = 5
+    elif position == 8 and direction == 'L':
+        position = 7
+    elif position == 8 and direction == 'R':
+        position = 9
+    elif position == 9 and direction == 'U':
+        position = 6
+    elif position == 9 and direction == 'L':
+        position = 8
 
-for i in col_list:
-    for z in range(len(i)):
-        try:
-            i[z] = int(i[z])
-        except ValueError:
-            pass
-    i = sorted((i))
-    print i
-    if (i[0] + i[1]) > i[2]:
-        count += 1
-print "Total Number of Possible Triangles: ", count
+    return position
+#Get input1
+begin = getposition(5,input1[0])
+for i in input1[1:]:
+    next = getposition(begin,i)
+    begin = next
+print "The First digit is ", next
+
+begin = next
+for i in input2:
+    next = getposition(begin,i)
+    begin = next
+print "The Second digit is ", next
+
+begin = next
+for i in input3:
+    next = getposition(begin,i)
+    begin = next
+print "The Third digit is ", next
+
+begin = next
+for i in input4:
+    next = getposition(begin,i)
+    begin = next
+print "The Forth digit is ", next
+
+begin = next
+for i in input5[1:]:
+    next = getposition(begin,i)
+    begin = next
+print "The Fifth digit is ", next

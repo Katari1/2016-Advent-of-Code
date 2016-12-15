@@ -27,9 +27,9 @@ UUUUD
 So, in this example, the bathroom code is 1985.
 
 Your puzzle input is the instructions from the document you found at the front desk. What is the bathroom code?
-Input is triangles.txt
-Example input is triangles_test.txt
-Solution is 1050
+
+
+
 
 
 
@@ -52,4 +52,4 @@ You still start at "5" and stop when you're at an edge, but given the same instr
 So, given the actual keypad layout, the code would be 5DB3.
 
 Using the same instructions in your puzzle input, what is the correct bathroom code?
-Input is triangles.txt
+Code = 18843
